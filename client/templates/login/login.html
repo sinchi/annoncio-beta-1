@@ -1,0 +1,22 @@
+<template name="login">
+	<form class="form-signin">
+        <h2 class="form-signin-heading">Connexion</h2>
+        <label for="email" class="sr-only">E-mail:</label>
+        <div class="input-group {{errorClass 'email'}}">
+        <input type="text" class="form-control" id="email"  placeholder="E-mail:" name="email">
+        <span class="help-block">{{errorMessage 'email'}}</span>
+          </div>
+        <label for="password" class="sr-only">Mot de passe:</label>
+        <div class="input-group {{errorClass 'password'}}">
+          <input type="password" class="form-control" name="password" placeholder="Mot de passe:">
+          <span class="help-block">{{errorMessage 'password'}}</span>
+          </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me" name="session"> Rester connecter
+          </label>
+        </div>
+        <input type="submit" class="btn btn-lg btn-primary" value="Se connecter" />
+    </form>
+    
+</template>

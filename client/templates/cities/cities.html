@@ -1,0 +1,7 @@
+<template name="cities">
+	<select id="city" maxlength="50" class="form-control" name="city" >
+		{{#each cities}}
+			{{>cityItem}}
+		{{/each}}
+	</select>
+</template>

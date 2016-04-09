@@ -1,0 +1,25 @@
+<template name="commentsList">
+	<div class="col-md-12">
+		<div class="col-md-6">
+			{{#each comments}}
+				{{>commentItem}}
+			{{/each}}
+		</div>
+		<div class="col-md-7">
+		{{#if currentUser}}
+		
+			<form class="form">
+				<div class="form-controls">
+					<label class="label-control">Commentaire</label>
+					<div class="controls">
+						<textarea name="body" cols="30" class="form-control"></textarea>
+					</div>			
+				</div>
+				<button type="submit" class="btn btn-primary"> Envoyer </button>
+			</form>
+		{{else}}
+			<p><a href="{{pathFor 'login'}}">Connectez-vous pour envoyer un commentaire !!</a></p>		
+		{{/if}}
+		</div>
+	</div>
+</template>

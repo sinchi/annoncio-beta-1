@@ -1,0 +1,18 @@
+<template name="annonceItem">	
+	<div class="media">
+	    <div class="media-left">
+		    <a href="{{pathFor 'annoncePage'}}">		    	
+				<img src="{{photo.url}}" class="media-object thumbnail" width="171" height="180"/>						     
+		    </a>
+		  </div>
+		  <div class="media-body">
+		    <h4 class="media-heading">{{title}}</h4>
+		    	<p> {{description}}</p>
+		    	<p><strong>Prix</strong>: {{price}}DH</p>
+				<p><strong>Annonceur</strong> : {{author}}</p>				
+				<p><strong>date de publication</strong> : {{submittedText}}</p>
+				<p><strong>Ville</strong> :  {{city cityId}} </p>
+				<p><strong>Categorie</strong> : {{category categoryId}} </p>				
+		  </div>
+	</div>
+</template>

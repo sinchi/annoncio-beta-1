@@ -1,0 +1,122 @@
+<template name="annonceSubmit">
+	<div class="col-md-7">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<form>
+					<div class="form-group">
+						<h2>Créer votre Annonce !</h2>
+						<hr>
+					</div>
+					<div class="form-controls">			
+						<label class="control-label">Catégorie:</label>
+						<div class="controls">
+							{{>categories}}
+						</div>			
+					</div>
+					{{#if vihicule}}
+						vihicule
+					{{else}}
+						{{#if immobilier}}
+							immobilier
+						{{else}}
+					<div class="form-group">
+						<label class="control-label" for='offre'>Type d'annonce:</label>
+						 <div class="controls">
+						 	<label class="control-label" for="offre">	
+					 		<input type="radio" name="type" id="offre" value="offre" checked>
+						    	Offre
+							</label>
+						</div>
+						<div class="controls">			
+						  <label class="control-label" for="demande">
+						  <input type="radio" name="type" id="demande" value="demande">
+						    Demande
+						  </label>							
+						</div>
+					</div>
+						{{/if}}
+					{{/if}}
+					<div class="form-controls">
+						<label class="control-label">Villes:</label>
+						<div class="controls">
+							{{>cities}}
+						</div>
+					</div>
+					<div class="form-controls {{errorClass 'title'}}" for='title'>
+						<label class="control-label">Titre:</label>
+						<div class="controls">
+							<input type="text" name="title" class="form-control" id="title">
+							<span class="help-block">{{errorMessage 'title'}}</span>
+						</div>
+					</div>
+					<div class="form-controls {{errorClass 'description'}}">
+						<label class="control-label" for="description">Description: </label>
+						<div class="controls">
+							<textarea class="form-control" rows="3" name="description" id="description"></textarea>
+							<span class="help-block">{{errorMessage 'description'}}</span>
+						</div>
+					</div>
+					<div class="form-controls {{errorClass 'price'}}">
+						<label class="control-label" for="price">Prix: </label>
+						<div class="controls">
+							<input type="text" class="form-control"  name="price" id="price"/>
+							<span class="help-block">{{errorMessage 'price'}}</span>
+						</div>
+					</div>
+					<div class="form-group">
+					    <label for="exampleInputFile">Photo</label>
+					    <input type="file" id="photos" name="photos" class="photos" multiple>
+					    <p class="help-block">Ajouter jusqu'à 6 photos</p>
+					</div>
+					{{#unless currentUser}}
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="form-group">
+								<h2>Créer un compte Annoncio.ma!</h2>
+								<hr>
+							</div>	
+							<div class="form-group">
+								Vous êtes :		
+								 <div class="controls">
+								 	<label class="control-label" for="particulier">	
+									 	<input type="radio" name="typeUser" id="particulier" value="particulier" checked>
+										    Particulier
+									</label>
+								</div>
+								<div class="controls">			
+								 	<label class="control-label" for="professionnel">
+									  	<input type="radio" name="typeUser" id="professionnel" value="professionnel">
+										    Professionnel
+								  	</label>							
+								</div>
+							</div>										
+							<div class="form-group {{errorClass 'phone'}}">
+								<label class="control-label" for="phone">Téléphone</label>							
+									<input id="name" type="text" maxlength="50" class="form-control" name="phone" placeholder="0660XXXXXX">
+								<span class="help-block">{{errorMessage 'phone'}}</span>							
+							</div>	
+							<span class="help-block"><input type="checkbox" name="hide-phone"> Masquer le numéro de téléphone sur les annonces publiées.</span>
+							<div class="form-group {{errorClass 'name'}}">
+								<label class="control-label" for="name">Nom</label>
+								<input id="name" type="text" maxlength="50" class="form-control" name="name" placeholder="Saisir votre Nom">
+								<span class="help-block">{{errorMessage 'name'}}</span>
+							</div>
+							<div class="form-group {{errorClass 'email'}}">
+								<label class="control-label" for="email">E-mail</label>
+								<input id="email" type="email" maxlength="50" class="form-control" name="email" palceholder="Saisir votre Email">
+								<span class="help-block">{{errorMessage 'email'}}</span>
+							</div>
+							<div class="form-group {{errorClass 'password'}}">
+								<label class="control-label" for="password">Mot de passe</label>
+								<input id="password" type="password" maxlength="25" class="form-control" placeholder="7 caractéres au moin" length="40" name="password" >
+								<span class="help-block">{{errorMessage 'password'}}</span>
+							</div>
+						</div>
+					</div>
+						{{/unless}}
+						<input type="submit" value="Déposez votre annonce!" class="btn btn-primary">
+					</form>
+				</div>
+			</div>
+	</div>
+</template>

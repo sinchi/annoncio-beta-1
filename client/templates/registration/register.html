@@ -1,0 +1,77 @@
+<template name="register">
+	<div  class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<form name="register">
+						<div class="form-group">
+							<h2>Créer un compte Annoncio.ma!</h2>
+						</div>
+						<div class="form-group">
+							Vous êtes :		
+							 <div class="controls">
+							 	<label class="control-label" for="particulier">	
+							 	<input type="radio" name="type" id="particulier" value="particulier" checked>
+								    Particulier
+								</label>
+							</div>
+							<div class="controls">			
+								  <label class="control-label" for="professionnel">
+								  <input type="radio" name="type" id="professionnel" value="professionnel">
+								    Professionnel
+								  </label>							
+							</div>
+						</div>											
+						<div class="form-group {{errorClass 'phone'}}">
+							<label class="control-label" for="phone">Téléphone</label>							
+							<input id="name" type="text" maxlength="50" class="form-control" name="phone" placeholder="0660XXXXXX">
+							<span class="help-block">{{errorMessage 'phone'}}</span>							
+						</div>	
+						<span class="help-block"><input type="checkbox" name="hide-phone"> Masquer le numéro de téléphone sur les annonces publiées.</span>
+						<div class="form-group {{errorClass 'city'}}">
+							<label class="control-label" for="name">Ville</label>
+							{{>cities}}
+							<span class="help-block">{{errorMessage 'name'}}</span>
+						</div>					
+						<div class="form-group {{errorClass 'name'}}">
+							<label class="control-label" for="name">Nom</label>
+							<input id="name" type="text" maxlength="50" class="form-control" name="name" placeholder="Saisir votre Nom">
+							<span class="help-block">{{errorMessage 'name'}}</span>
+						</div>
+						<div class="form-group {{errorClass 'email'}}">
+							<label class="control-label" for="email">E-mail</label>
+							<input id="email" type="email" maxlength="50" class="form-control" name="email" palceholder="Saisir votre Email">
+							<span class="help-block">{{errorMessage 'email'}}</span>
+						</div>
+						<div class="form-group {{errorClass 'vEmail'}}">
+							<label class="control-label" for="vEmail">Vérifiez E-mail:</label>
+							<input id="vEmail" type="email" maxlength="50" class="form-control" name="vEmail">
+							<span class="help-block">{{errorMessage 'vEmail'}}</span>
+						</div>
+						<div class="form-group {{errorClass 'password'}}">
+							<label class="control-label" for="password">Mot de passe</label>
+							<input id="password" type="password" maxlength="25" class="form-control" placeholder="7 caractéres au moin" length="40" name="password" >
+							<span class="help-block">{{errorMessage 'password'}}</span>
+						</div>
+						<div class="form-group {{errorClass 'vPassword'}} ">
+							<label class="control-label" for="vPassword">Confirmer le mot de passe:</label>
+							<input id="vPassword" type="password" maxlength="25" class="form-control" name="vPassword">
+							<!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
+							<span class="help-block">{{errorMessage 'vPassword'}}</span>
+						</div>
+						<!-- <div class="form-group has-success has-feedback">
+						  <label class="control-label" for="inputSuccess2">Input with success</label>
+						  <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+						  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+						  <span id="inputSuccess2Status" class="sr-only">(success)</span>
+						</div> -->
+						
+							<button id="signupSubmit" type="submit" class="btn btn-success pull-right">Créer un compte!</button>
+						
+						<p class="form-group">En cliquant sur "Créer un compte" j'accepte la  <a href="#">Politique de confidentialité</a> de Annoncio.ma .</p>
+						<hr>
+						<p>Vous avez déjà un compte? <a href="{{pathFor 'login'}}">Se connecter</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+</template>

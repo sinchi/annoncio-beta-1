@@ -1,0 +1,20 @@
+<template name="annoncesList">
+	{{#each annonces}}
+		{{>annonceItem}}		
+		<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">Voir <span class="
+glyphicon glyphicon-eye-open"></span></a>
+	{{#if countComments}}
+		<a href="{{pathFor 'annoncePage'}}" class="btn btn-default"><span class="glyphicon glyphicon-comment"></span> {{countComments}}</a>
+	{{/if}}
+	{{#if ownAnnonce}}
+		<a href="{{pathFor 'annonceEdit'}}" class="btn btn-warning"> Modifier<span class="glyphicon glyphicon-pencil"></span></a>{{/if}}		
+		<hr>
+	{{/each}}
+	{{#if nextPath}}
+      <a class="btn btn-primary btn-lg col-md-12" href="{{nextPath}}">Charger plus</a>
+    {{else}}
+      {{#unless ready}}
+        {{> spinner}}               
+      {{/unless}}
+    {{/if}}
+</template>

@@ -1,0 +1,13 @@
+<template name="categories">
+	<select id="category" maxlength="50" class="form-control category" name="category" >		
+		{{#each categories}}
+			{{#unless parentId}}
+				<optgroup label="{{name}}">
+					{{#each categoryChilds _id}}
+						{{>categoryItem}}
+					{{/each}}
+				</optgroup>
+			{{/unless}}			
+		{{/each}}
+	</select>
+</template>

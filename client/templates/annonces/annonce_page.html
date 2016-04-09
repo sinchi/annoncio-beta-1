@@ -1,0 +1,15 @@
+<template name="annoncePage">
+	{{>annonceItem}}
+	<p><strong>Téléphone: {{user.profile.phone}}</strong>	</p>
+	{{#each photos}}	
+	  <div class="col-xs-6 col-md-2">
+	    <a href="#" class="thumbnail">
+	     <img src="{{this.url}}" class="media-object" width="171" height="180" />
+	    </a>
+	  </div>
+	  {{user.profile.name}}	
+	{{/each}}
+	
+	{{>commentsList}}
+	
+</template>
