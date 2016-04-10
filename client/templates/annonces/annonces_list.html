@@ -1,10 +1,13 @@
 <template name="annoncesList">
+  <!-- {{#if countAnnonces}}
+    <button class="btn btn-default fixe">ya des nouveux annonces!</button>
+  {{/if}} -->
 	{{#each annonces}}			
 		{{>annonceItem}}					
 	{{/each}}
 
 	{{#if nextPath}}
-      <a class="btn btn-primary btn-lg col-md-8 col-md-offset-1" href="{{nextPath}}"><span class="glyphicon glyphicon-repeat"></span> Charger plus</a>
+      <a class="btn btn-primary btn-lg col-md-7 col-md-offset-1" href="{{nextPath}}">Charger plus <span class="glyphicon glyphicon-repeat"></span></a>
     {{else}}
       {{#unless ready}}
         {{> spinner}}               

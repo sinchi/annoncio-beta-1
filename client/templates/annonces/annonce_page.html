@@ -1,19 +1,134 @@
 <template name="annoncePage">
-	{{>annonceItem}}
-	<p><strong>Téléphone: {{user.profile.phone}}</strong>	</p>
-	<p><strong>Ville: {{city}}</strong>	</p>
-	<p><strong>Catégorie: {{category}}</strong>	</p>
-	{{#each photos}}	
-	  <div class="col-xs-6 col-md-2">
-	    <a href="#" class="thumbnail">
-	     <img src="{{this.url}}" class="media-object" width="171" height="180" />
-	    </a>
-	  </div>
-	  {{user.profile.name}}	
-	{{/each}}
-	<div class="col-sm-6 col-md-8 col-md-offset-1">
-		{{>commentsList}}
-	</div>
+
 	
+	
+	<div class="row col-md-12">
+		<!-- <div class="col-md-1">
+			<h2><span class="glyphicon glyphicon-user"></span></h2>
+			{{username}}
+		</div> -->	
+		
+			
+			
+		  <div class="col-sm-6 col-md-8">
+		  	<h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	
+
+		  <!-- 	<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">{{title}}<a href="#" class="pull-right">{{submittedText}}</a></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="col-md-12">
+		  			{{#each photos}}	
+					  <div class="col-xs-6 col-md-3">
+					    <a href="#" class="thumbnail">
+					     <img src="{{this.url}}" class="img-rounded" />
+					    </a>
+					  </div>				  
+					{{/each}}
+		  		</div>
+			    {{description}}
+			  </div>
+			</div> -->						    		
+		    <div class="thumbnail">				        
+		  		<div class="col-md-12">
+		  			<!-- <a href="{{pathFor 'annoncePage'}}">	    		
+			      		<img src="{{photo.url}}" class="img-rounded"/>
+			  		</a> -->			  		
+		  			{{#each photos}}	
+					  <div class="col-xs-6 col-md-6">
+					    <a href="#" class="thumbnail">
+					     <img src="{{this.url}}" class="img-rounded" />
+					    </a>
+					  </div>				  
+					{{/each}}
+		  		</div>
+		      <div class="caption">
+		        <h3>{{title}}</h3>	        
+		        <p>{{description}}</p>
+		        <p>		    
+		        	{{#if countComments}}
+						<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-comment"></span> {{countComments}}
+						</a>
+					{{/if}}
+					{{#if ownAnnonce}}
+						<a href="{{pathFor 'annonceEdit'}}" class="btn btn-warning">
+						 Modifier<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+					{{/if}}	
+							
+				</p>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-4 pull-right">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<h2><span class="glyphicon glyphicon-user"></span> {{username}}</h2>			
+					<!-- span class="bagde">{{username}}</span> -->
+				</li>
+			  <li class="list-group-item">			   
+			    <span class="glyphicon glyphicon-earphone"></span> <strong>Téléphone </strong>
+			     <span class="badge">{{user.profile.phone}}</span>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{city}}</span>
+			    <span class="glyphicon glyphicon-globe"></span> <strong>Ville </strong>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{email}}</span>
+			    <span class="glyphicon glyphicon-envelope"></span> <strong>email</strong>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{price}} DH</span>
+			    <span class="glyphicon glyphicon-tag"></span> <strong>Prix </strong>
+			  </li>
+			</ul>			
+		</div>
+
+		<div class="row">
+		<div class="col-md-8 offset-col-md-1">
+			{{>commentsList}}
+		</div>
+	</div>
+	</div>
+
+	<!-- <div class="row">
+		<div class="col-md-5 offset-col-md-3 pull-center">
+			<ul class="list-group">
+			  <li class="list-group-item">
+			    <span class="badge">{{user.profile.phone}}</span>
+			    Téléphone :
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{city}}</span>
+			    Ville :
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{category}}</span>
+			    Catégorie :
+			  </li>
+			</ul>
+		</div>
+	</div>
+		<div class="col-md-4">
+			{{#each photos}}	
+			  <div class="col-xs-6 col-md-3">
+			    <a href="#" class="thumbnail">
+			     <img src="{{this.url}}" class="media-object" width="171" height="180" />
+			    </a>
+			  </div>
+			  {{user.profile.name}}	
+			{{/each}}
+		</div>
+	
+	
+	<div class="row">
+		<div class="col-md-8">
+			{{>commentsList}}
+		</div>
+	</div>
+	 -->
 	
 </template>

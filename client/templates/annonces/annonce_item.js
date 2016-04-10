@@ -24,6 +24,16 @@ Template.annonceItem.helpers({
 	}
 });
 
+Template.annonceItem.events({
+	'click .readIt': function(e){
+		e.preventDefault();
+		//console.log('annonce Id' + this._id);
+		if(Meteor.userId())
+			Meteor.call('readIt', this._id);
+		Router.go('annoncePage', {_id: this._id});
+	}
+});
+
 
 /*Tracker.autorun(function(){		
 	return Meteor.subscribe('photo', Session.get('photo'));

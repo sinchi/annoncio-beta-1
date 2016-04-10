@@ -77,7 +77,7 @@ Template.annonceSubmit.events({
 					cityId: $(e.target).find('[name=city]').val(),
 					title: $(e.target).find('[name=title]').val(),
 					description: $(e.target).find('[name=description]').val(),
-					price: $(e.target).find('[name=price]').val(),					
+					price: parseInt($(e.target).find('[name=price]').val()),					
 					images: Session.get('photos') || []
 				};						
 				/*console.log('ok');
@@ -118,7 +118,7 @@ Template.annonceSubmit.events({
 					cityId: $(e.target).find('[name=city]').val(),
 					title: $(e.target).find('[name=title]').val(),
 					description: $(e.target).find('[name=description]').val(),
-					price: $(e.target).find('[name=price]').val(),
+					price: parseInt($(e.target).find('[name=price]').val()),
 					images: Session.get('photos') || []
 				};	
 				

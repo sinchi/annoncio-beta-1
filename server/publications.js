@@ -6,6 +6,7 @@ Meteor.publish('searchAnnonces', function(options, texte, city, category){
 	check(texte, Object);
 	check(city, String);
 	check(category, String);
+
 	return Annonces.find({title: texte, cityId: city, categoryId: category}, options);
 });
 
@@ -34,7 +35,7 @@ Meteor.publish('categories', function(){
 Meteor.publish('users', function(annonceId){
 	check(annonceId, String);
 	var annonce = Annonces.findOne(annonceId);
-	return Meteor.users.find(annonce.userId, {fields: {profile : 1}});
+	return Meteor.users.find(annonce.userId, {fields: {profile : 1, emails: 1}});
 });
 
 /*Meteor.publish('getPhotos', function(annonceId){

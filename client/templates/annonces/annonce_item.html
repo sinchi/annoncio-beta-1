@@ -15,22 +15,29 @@
 				<p><strong>Categorie</strong> : {{category categoryId}} </p>				
 		  </div>
 	</div> -->
-	
-	  <div class="col-sm-6 col-md-8 col-md-offset-1">
-	  	<h4><blockquote><span class="glyphicon glyphicon-user"></span> {{username}}  <a href="#" class="pull-right">{{submittedText}}</a></blockquote></h4>	
+	<div class="row col-md-11">
+	<div class="col-md-1">
+		<h2><span class="glyphicon glyphicon-user"></span></h2>
+
+		{{username}}
+	</div>
+	  <div class="col-sm-6 col-md-8">
+	  	<h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	
 	    <div class="thumbnail">
-	    	<a href="{{pathFor 'annoncePage'}}">	    		
+	    	<a href="{{pathFor 'annoncePage'}}" class="readIt">	    		
 	      		<img src="{{photo.url}}" class="img-rounded"/>
 	  		</a>
 	      <div class="caption">
 	        <h3>{{title}}</h3>	        
 	        <p>{{description}}</p>
 	        <p>
-	        	<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">
-	        		Voir <span class="glyphicon glyphicon-eye-open"></span>
+	        	{{#if reads}}
+	        	<a href="{{pathFor 'annoncePage'}}" class="btn btn-default readIt">
+	        		<span class="glyphicon glyphicon-eye-open"></span> {{reads}} 
 	        	</a> 
+	        	{{/if}}
 	        	{{#if countComments}}
-					<a href="{{pathFor 'annoncePage'}}" class="btn btn-default">
+					<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary readIt">
 						<span class="glyphicon glyphicon-comment"></span> {{countComments}}
 					</a>
 				{{/if}}
@@ -43,5 +50,5 @@
 	      </div>
 	    </div>
 	  </div>
-	
+	</div>
 </template>
