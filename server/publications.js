@@ -1,10 +1,12 @@
-Meteor.publish('searchAnnonces', function(options, texte){
+Meteor.publish('searchAnnonces', function(options, texte, city, category){
 	check(options, {
 		sort: Object,
 		limit: Number
 	});
 	check(texte, Object);
-	return Annonces.find({title: texte}, options);
+	check(city, String);
+	check(category, String);
+	return Annonces.find({title: texte, cityId: city, categoryId: category}, options);
 });
 
 Meteor.publish('annonces', function(options){	 	
@@ -59,7 +61,7 @@ Meteor.publish('photosAnnonce', function(annonceId){
 
 Meteor.publish('comments', function(annonceId){
 	check(annonceId, String);
-	return Comments.find({annonceId: annonceId});
+	return Comments.find({annonceId: annonceId}, {sort: {submitted: -1}});
 });
 
 Meteor.publish('notifications', function(){

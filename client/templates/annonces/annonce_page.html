@@ -1,6 +1,8 @@
 <template name="annoncePage">
 	{{>annonceItem}}
 	<p><strong>Téléphone: {{user.profile.phone}}</strong>	</p>
+	<p><strong>Ville: {{city}}</strong>	</p>
+	<p><strong>Catégorie: {{category}}</strong>	</p>
 	{{#each photos}}	
 	  <div class="col-xs-6 col-md-2">
 	    <a href="#" class="thumbnail">
@@ -9,7 +11,9 @@
 	  </div>
 	  {{user.profile.name}}	
 	{{/each}}
+	<div class="col-sm-6 col-md-8 col-md-offset-1">
+		{{>commentsList}}
+	</div>
 	
-	{{>commentsList}}
 	
 </template>

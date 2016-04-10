@@ -1,10 +1,18 @@
 <template name="layout">	
 		{{>header}}		
-	<div class="container">
-		{{>errors}}
-		<div id="main">
-			{{>yield}}
+	<div class="container">	
+		{{>errors}}		
+		<div id="main" class="row">	
+			<div class="col-md-3">
+				{{>searchAnnonces}}
+			</div>	
+			<div class="col-md-9">
+				{{>yield}}	
+			</div>		
+					
+			<button class="btn btn-lg btn-default pull-right drop"><span class="glyphicon glyphicon-arrow-up"></span></button>		
 		</div>
-	</div>
+	</div>	
+
 	{{>footer}}
 </template>

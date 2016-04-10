@@ -5,7 +5,7 @@ Template.annoncePage.onRendered(function(){
 	$('html,body').animate({
             scrollTop: 0
         }, 100);
-})
+});
 
 Template.annoncePage.helpers({
 	user: function(){
@@ -13,5 +13,11 @@ Template.annoncePage.helpers({
 	},
 	photos: function(){
 		return Photos.find({_id: {$in: this.images}})		
+	},
+	city: function(){
+		return Cities.findOne(this.cityId).name;
+	},
+	category: function(){
+		return Categories.findOne(this.categoryId).name;
 	}
 });

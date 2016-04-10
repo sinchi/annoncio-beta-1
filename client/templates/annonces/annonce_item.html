@@ -1,5 +1,5 @@
 <template name="annonceItem">	
-	<div class="media">
+	<!-- <div class="media">
 	    <div class="media-left">
 		    <a href="{{pathFor 'annoncePage'}}">		    	
 				<img src="{{photo.url}}" class="media-object thumbnail" width="171" height="180"/>						     
@@ -14,5 +14,34 @@
 				<p><strong>Ville</strong> :  {{city cityId}} </p>
 				<p><strong>Categorie</strong> : {{category categoryId}} </p>				
 		  </div>
-	</div>
+	</div> -->
+	
+	  <div class="col-sm-6 col-md-8 col-md-offset-1">
+	  	<h4><blockquote><span class="glyphicon glyphicon-user"></span> {{username}}  <a href="#" class="pull-right">{{submittedText}}</a></blockquote></h4>	
+	    <div class="thumbnail">
+	    	<a href="{{pathFor 'annoncePage'}}">	    		
+	      		<img src="{{photo.url}}" class="img-rounded"/>
+	  		</a>
+	      <div class="caption">
+	        <h3>{{title}}</h3>	        
+	        <p>{{description}}</p>
+	        <p>
+	        	<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">
+	        		Voir <span class="glyphicon glyphicon-eye-open"></span>
+	        	</a> 
+	        	{{#if countComments}}
+					<a href="{{pathFor 'annoncePage'}}" class="btn btn-default">
+						<span class="glyphicon glyphicon-comment"></span> {{countComments}}
+					</a>
+				{{/if}}
+				{{#if ownAnnonce}}
+					<a href="{{pathFor 'annonceEdit'}}" class="btn btn-warning">
+					 Modifier<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+				{{/if}}						
+			</p>
+	      </div>
+	    </div>
+	  </div>
+	
 </template>

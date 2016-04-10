@@ -26,3 +26,4 @@ audit-argument-checks
 cfs:standard-packages
 cfs:gridfs
 sacha:spin
+momentjs:moment

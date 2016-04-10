@@ -9,7 +9,8 @@ Template.annonceItem.helpers({
 		return Categories.findOne(categoryId).name;
 	},
 	submittedText: function(){
-		return this.submitted.toString();
+		moment.locale('fr');		
+		return moment(this.submitted).fromNow();		
 	},
 	photo: function(){		
 		//console.log(this.images[0]);
@@ -17,6 +18,9 @@ Template.annonceItem.helpers({
 		if(photoId){			
 			return Photos.findOne(photoId);
 		}				
+	},
+	username: function(){
+		return this.author.charAt(0).toUpperCase() + this.author.slice(1);
 	}
 });
 
@@ -24,3 +28,4 @@ Template.annonceItem.helpers({
 /*Tracker.autorun(function(){		
 	return Meteor.subscribe('photo', Session.get('photo'));
 });*/
+

@@ -2,7 +2,7 @@
 	
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    <h3 class="panel-title">{{author}} 
+		    <h3 class="panel-title">{{author}} <a href="#" class="pull-right">{{submittedText}}</a>
 		    	{{#if ownComment}}
 		    		<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		    	{{/if}}
@@ -11,6 +11,7 @@
 		  <div class="panel-body">
 		    {{body}}
 		  </div>
+		  <!-- <div class="panel-footer">Panel footer</div> -->
 		</div>
 	
 </template>

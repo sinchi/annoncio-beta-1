@@ -2,6 +2,8 @@ import {Session} from 'meteor/session'
 
 Template.searchAnnonces.onCreated(function(){
 	Session.set('texte', '');
+	Session.set('category', '');
+	Session.set('city', '');
 });
 
 Template.searchAnnonces.events({
@@ -9,9 +11,13 @@ Template.searchAnnonces.events({
 		e.preventDefault();
 
 		var texte = $(e.target).find('[name=texte]').val();
+		var category = $(e.target).find('[name=category]').val();
+		var city = $(e.target).find('[name=city]').val();
 		Session.set('texte', texte);
+		Session.set('category', category);
+		Session.set('city', city);
 		if(texte)
-			Router.go('searchList', {texte: texte});
+			Router.go('searchList', {texte: texte, category: category, city: city});
 	}
 });
 

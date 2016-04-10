@@ -1,3 +1,5 @@
 Template.searchList.onRendered(function(){
-	$('body').scrollTop(0);
+	return $('html,body').animate({
+            scrollTop: 0
+        }, 100);
 })

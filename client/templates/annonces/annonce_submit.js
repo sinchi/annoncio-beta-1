@@ -5,6 +5,12 @@ Template.annonceSubmit.onCreated(function(){
 	Session.set('photos', []);
 });
 
+Template.annonceSubmit.onRendered(function(){
+	$('html,body').animate({
+            scrollTop: 0
+        }, 100);
+});
+
 Template.annonceSubmit.helpers({
 	errorClass: function(field){
 		return !!Session.get('submitAnnonceErrors')[field] ? 'has-error' : '';
@@ -56,7 +62,7 @@ Template.annonceSubmit.events({
 						throwError(err.reason);
 					photos.push(photo._id);
 					Session.set('photos', photos);
-					console.log(Session.get('photos'));
+					//console.log(Session.get('photos'));
 				})
 		});						
 	},
@@ -81,7 +87,7 @@ Template.annonceSubmit.events({
 				_.each(photos, function(img){
 					console.log(img.name);
 				});*/
-				console.log(Session.get('photos'));
+				//console.log(Session.get('photos'));
 				//return;
 				var errors = validateAnnonce(annonce);
 				if(errors.description || errors.price || errors.title)

@@ -1,11 +1,9 @@
-<template name="commentsList">
-	<div class="col-md-12">
-		<div class="col-md-6">
+<template name="commentsList">	
+		
 			{{#each comments}}
 				{{>commentItem}}
 			{{/each}}
-		</div>
-		<div class="col-md-7">
+		
 		{{#if currentUser}}
 		
 			<form class="form">
@@ -15,11 +13,11 @@
 						<textarea name="body" cols="30" class="form-control"></textarea>
 					</div>			
 				</div>
-				<button type="submit" class="btn btn-primary"> Envoyer </button>
+				<button type="submit" class="btn btn-primary form-control"> Envoyer </button>
 			</form>
 		{{else}}
 			<p><a href="{{pathFor 'login'}}">Connectez-vous pour envoyer un commentaire !!</a></p>		
 		{{/if}}
-		</div>
-	</div>
+		
+	
 </template>
