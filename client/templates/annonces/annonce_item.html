@@ -18,8 +18,13 @@
 	<div class="row col-md-11">
 	<div class="col-md-1">
 		<h2><span class="glyphicon glyphicon-user"></span></h2>
+		<!-- {{#each users}}
+			{{#if status}}
+				{{status}}
+			 {{/if}}
+		{{/each}} -->
 
-		{{username}}
+		{{#if status }}<span class="label label-success">{{username}}</span>{{else}}<span class="label label-danger">{{username}}</span>{{/if}}		
 	</div>
 	  <div class="col-sm-6 col-md-8">
 	  	<h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	

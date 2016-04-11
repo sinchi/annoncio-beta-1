@@ -11,7 +11,7 @@
 			
 			
 		  <div class="col-sm-6 col-md-8">
-		  	<h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	
+		  	<!-- <h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2> -->	
 
 		  <!-- 	<div class="panel panel-primary">
 			  <div class="panel-heading">
@@ -65,7 +65,7 @@
 	  <div class="col-md-4 pull-right">
 			<ul class="list-group">
 				<li class="list-group-item">
-					<h2><span class="glyphicon glyphicon-user"></span> {{username}}</h2>			
+					<h2><span class="glyphicon glyphicon-user"></span> {{username}} {{#if user.status }}<span class="label label-success pull-right">En ligne</span>{{else}} <span class="label label-danger pull-right">Hors Ligne</span> {{/if}}</h2>			
 					<!-- span class="bagde">{{username}}</span> -->
 				</li>
 			  <li class="list-group-item">			   
@@ -84,14 +84,15 @@
 			    <span class="badge">{{price}} DH</span>
 			    <span class="glyphicon glyphicon-tag"></span> <strong>Prix </strong>
 			  </li>
-			</ul>			
+			</ul>	
+			{{>commentsList}}		
 		</div>
 
-		<div class="row">
-		<div class="col-md-8 offset-col-md-1">
-			{{>commentsList}}
-		</div>
-	</div>
+		<!-- <div class="row">
+			<div class="col-md-8 offset-col-md-1">
+				{{>commentsList}}
+			</div>
+		</div> -->
 	</div>
 
 	<!-- <div class="row">

@@ -39,5 +39,11 @@ Template.annoncePage.helpers({
 	email: function(){
 		var user = Meteor.users.findOne(this.userId);
 		return user.emails[0].address;
-	}
+	}/*,
+	ownStatus: function(){
+		if(Meteor.userId() !== this.userId)
+			return true;
+		else
+			return false;
+	}*/
 });

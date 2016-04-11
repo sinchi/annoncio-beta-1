@@ -12,6 +12,12 @@ Template.header.helpers({
 Template.header.events({
 	'click .logout': function(e){
 		e.preventDefault();
+		Meteor.call('updateUserStatusDeconnection', function(err, result){
+			if(err)
+				throwError(err.reason);
+			console.log(Meteor.userId() + " est deconnecté");
+		})
 		Meteor.logout();
+
 	}
 });

@@ -47,10 +47,13 @@ Template.register.events({
             	type: annonceur.type
 		};
 
-		Accounts.createUser({email: annonceur.email, password : annonceur.password, profile: profile}, function(err){
+		Accounts.createUser({email: annonceur.email, password : annonceur.password, profile: profile, status:true}, function(err){
           if (err) {
             return throwError(err.reason);
           } else {            
+          	Meteor.call('updateUserStatusLogin', function(err, result){
+				console.log(Meteor.userId() + " est en ligne");
+			});
             Router.go('profile');
           }
 

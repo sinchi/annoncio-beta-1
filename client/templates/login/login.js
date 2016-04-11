@@ -29,10 +29,13 @@ Template.login.events({
 		if(errors.email || errors.password)
 			return Session.set('loginErrors', errors);
 
-		Meteor.loginWithPassword(email, password, function(err){
+		Meteor.loginWithPassword(email, password, function(err, connected){
 			if(err)
-				return throwError(err.reason);
-			
+				return throwError(err.reason);		
+
+			Meteor.call('updateUserStatusLogin', function(err, result){
+				console.log(Meteor.userId() + " est en ligne");
+			});
 			Router.go('annoncesList');
 		});
 	}

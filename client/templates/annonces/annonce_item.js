@@ -21,7 +21,13 @@ Template.annonceItem.helpers({
 	},
 	username: function(){
 		return this.author.charAt(0).toUpperCase() + this.author.slice(1);
+	},
+	status: function(){
+		var user = Meteor.users.findOne(this.userId);
+		if(user)
+			return user.status;
 	}
+	
 });
 
 Template.annonceItem.events({

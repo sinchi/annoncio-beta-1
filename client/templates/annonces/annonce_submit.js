@@ -146,7 +146,9 @@ Template.annonceSubmit.events({
 							console.log(error.reason);
 							return throwError(error.reason);
 						}
-							
+						Meteor.call('updateUserStatusLogin', function(err, result){
+							console.log(Meteor.userId() + " est en ligne");
+						});
 						Router.go('annoncePage', {_id: result._id});
 					});       
 		            
