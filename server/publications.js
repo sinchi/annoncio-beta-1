@@ -1,15 +1,15 @@
-Meteor.publish('searchAnnonces', function(options, texte, city, category){
+Meteor.publish('searchAnnonces', function(search,options){
+	check(search, Object);
+
 	check(options, {
 		sort: Object,
 		limit: Number
 	});
-	check(texte, Object);
-	check(city, String);
-	check(category, String);
+	
 
-	return Annonces.find({title: texte || '', cityId: city, categoryId: category}, options);
+	return Annonces.find(search, options);
 });
-
+	
 Meteor.publish('annonces', function(options){	 	
 	check(options, {
 		sort: Object,

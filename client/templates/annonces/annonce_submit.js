@@ -56,14 +56,20 @@ Template.annonceSubmit.events({
 			});
 			Session.set('photos', []);
 		}			
+		var i = 0;
 		_.each(files, function(file){
-				Photos.insert(file, function(err, photo){
+			Photos.insert(file, function(err, photo){
 					if(err)
 						throwError(err.reason);
 					photos.push(photo._id);
 					Session.set('photos', photos);
 					//console.log(Session.get('photos'));
-				})
+					if(i === 0)
+						Photos.update({_id: photo._id}, {$set: {active:true}});
+					
+					i++;
+				});
+
 		});						
 	},
 	'submit form': function(e, tpl){

@@ -16,7 +16,7 @@ Template.searchAnnonces.events({
 		Session.set('texte', texte);
 		Session.set('category', category);
 		Session.set('city', city);
-		if(texte)
+		//if(texte)
 			Router.go('searchList', {texte: texte, category: category, city: city});
 	}
 });

@@ -33,17 +33,16 @@ Template.annoncePage.helpers({
 			return Photos.findOne(photoId);
 		}				
 	},
+
+	photoActive: function(){
+		return this.images[0];
+	},
+
 	username: function(){
 		return this.author.charAt(0).toUpperCase() + this.author.slice(1);
 	},
 	email: function(){
 		var user = Meteor.users.findOne(this.userId);
 		return user.emails[0].address;
-	}/*,
-	ownStatus: function(){
-		if(Meteor.userId() !== this.userId)
-			return true;
-		else
-			return false;
-	}*/
+	}
 });
