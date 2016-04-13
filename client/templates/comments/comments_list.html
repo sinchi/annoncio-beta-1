@@ -1,8 +1,10 @@
 <template name="commentsList">	
 		
+		
 			{{#each comments}}
 				{{>commentItem}}
 			{{/each}}
+			
 		
 		{{#if currentUser}}
 		
@@ -14,7 +16,7 @@
 						<!-- <input type="text" multiline class="form-control" name="body" /> -->
 					</div>			
 				</div>
-				<input type="submit" class="btn btn-primary form-control" value="Envoyer" />  
+				<button type="submit" class="btn btn-primary form-control" >Commenter <i class="fa fa-commenting" aria-hidden="true"></i></button>  
 			</form>
 		{{else}}
 			<p><a href="{{pathFor 'login'}}">Connectez-vous pour envoyer un commentaire !!</a></p>		

@@ -27,3 +27,5 @@ cfs:standard-packages
 cfs:gridfs
 sacha:spin
 momentjs:moment
+fortawesome:fontawesome
+less

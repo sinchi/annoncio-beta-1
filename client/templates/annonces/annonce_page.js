@@ -5,6 +5,7 @@ Template.annoncePage.onRendered(function(){
 	$('html,body').animate({
             scrollTop: 0
         }, 100);
+	//$("#comments").mCustomScrollbar();
 	//Meteor.call('readIt', this._id);
 	
 });

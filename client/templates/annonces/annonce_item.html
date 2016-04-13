@@ -1,33 +1,38 @@
-<template name="annonceItem">	
-	<!-- <div class="media">
-	    <div class="media-left">
-		    <a href="{{pathFor 'annoncePage'}}">		    	
-				<img src="{{photo.url}}" class="media-object thumbnail" width="171" height="180"/>						     
-		    </a>
-		  </div>
-		  <div class="media-body">
-		    <h4 class="media-heading">{{title}}</h4>
-		    	<p> {{description}}</p>
-		    	<p><strong>Prix</strong>: {{price}}DH</p>
-				<p><strong>Annonceur</strong> : {{author}}</p>				
-				<p><strong>date de publication</strong> : {{submittedText}}</p>
-				<p><strong>Ville</strong> :  {{city cityId}} </p>
-				<p><strong>Categorie</strong> : {{category categoryId}} </p>				
-		  </div>
-	</div> -->
-	<div class="row col-md-11">
+<template name="annonceItem">		
+	<div class="col-md-11">
 	<div class="col-md-1">
-		<h2><span class="glyphicon glyphicon-user"></span></h2>
-		<!-- {{#each users}}
-			{{#if status}}
-				{{status}}
-			 {{/if}}
-		{{/each}} -->
-
-		{{#if status }}<span class="label label-success">{{username}}</span>{{else}}<span class="label label-danger">{{username}}</span>{{/if}}		
+		<h2>
+			<i class="fa fa-user" aria-hidden="true"></i>
+		</h2>		
+		{{#if status }}
+			<span class="label label-success">{{username}}</span>
+			{{else}}<span class="label label-danger">{{username}}</span>
+		{{/if}}		
 	</div>
-	  <div class="col-sm-6 col-md-8">
-	  	<h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	
+	<div class="col-sm-6 col-md-8">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<p class="title"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{title}} <span class="pull-right white"><i class="fa fa-clock-o" aria-hidden="true"></i> {{submittedText}}</span></p> 
+			</div>
+			<div class="panel-body">
+				<a href="{{pathFor 'annoncePage'}}" class="readIt thumbnail">	    		
+		      		<img src="{{photo.url}}" />
+		  		</a>				
+			</div>
+			<div class="panel-footer">
+				{{#if reads}}
+	        	<a href="{{pathFor 'annoncePage'}}" class="btn btn-default readIt">
+	        		<i class="fa fa-eye" aria-hidden="true"></i>  {{pluralize reads "vue"}}
+	        	</a> 
+	        	{{/if}}
+	        	{{#if countComments}}
+					<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary readIt">
+						<i class="fa fa-comment" aria-hidden="true"></i>  {{pluralize countComments "commentaire"}}
+					</a>
+				{{/if}}
+			</div>
+		</div>
+	  	<!-- <h2><blockquote> {{title}}<a href="#" class="pull-right">{{submittedText}}</a></blockquote></h2>	
 	    <div class="thumbnail">
 	    	<a href="{{pathFor 'annoncePage'}}" class="readIt">	    		
 	      		<img src="{{photo.url}}" class="img-rounded"/>
@@ -53,7 +58,7 @@
 				{{/if}}						
 			</p>
 	      </div>
-	    </div>
+	    </div> -->
 	  </div>
 	</div>
 </template>

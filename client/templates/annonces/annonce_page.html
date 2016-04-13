@@ -1,48 +1,9 @@
 <template name="annoncePage">
-	<div class="row">	
-		  <div class="col-sm-6 col-md-8">		  			    			   				       
-		  		<div class="panel panel-primary">		  			
-					<div class="panel-heading"><h3>{{title}}</h3></div>
-					<div class="panel-body">
-						<div class="col-md-10 col-md-offset-1">
-							{{>carousel photos=photos}}
-						</div>							
-					</div>	
-					<div class="panel-footer">
-						<p class="lead">
-							{{description}}
-							
-								<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary pull-right">
-									<span class="glyphicon glyphicon-tag"></span> {{price}} DH
-								</a>
-						
-						</p>
-						
-					</div>
-								
-		  		</div>
-		      <div class="row">
-		        <h3>{{title}}</h3>	        
-		        <p class="lead">{{description}}</p>
-		        <p>		    
-		        	{{#if countComments}}
-						<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">
-							<span class="glyphicon glyphicon-comment"></span> {{countComments}}
-						</a>
-					{{/if}}
-					{{#if ownAnnonce}}
-						<a href="{{pathFor 'annonceEdit'}}" class="btn btn-warning">
-						 Modifier<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-					{{/if}}	
-							
-				</p>
-	      </div>
-	    </div>	  
-	  <div class="col-md-4 pull-right">	  	
-			<ul class="list-group">
+	<div class="row">
+		<div class="col-md-2">
+			<!-- <ul class="list-group">
 				<li class="list-group-item active">
-					<h2><span class="glyphicon glyphicon-user"></span> {{username}} {{#if user.status }}<span class="label label-success pull-right">En ligne</span>{{else}} <span class="label label-danger pull-right">Hors Ligne</span> {{/if}}</h2>								
+					<h2>Caractéristiques: </h2>								
 				</li>
 			  <li class="list-group-item">			   
 			    <span class="glyphicon glyphicon-earphone"></span> <strong>Téléphone </strong>
@@ -64,8 +25,90 @@
 			    <span class="badge">{{category}}, {{offre}}</span>
 			    <span class="glyphicon glyphicon-flag"></span> <strong>Type </strong>
 			  </li>
-			</ul>	
-			{{>commentsList}}		
+			</ul> -->
+			<!-- <div class="public-banner">
+			 <div class="row">
+				 <div class="col-lg-12">
+					 <iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20822.3905
+					3484898!2d-123.11777955000004!3d49.28020924999999!2m3!1f0!2f0!3f0!3m
+					2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717f41ba2fb1%3A0xc6952794560a4
+					4aa!2sDowntown%2C+Vancouver%2C+BC!5e0!3m2!1sen!2sca!4v1434608605144"
+					width="1170" height="500" frameborder="0" style="border:0"></iframe>
+				 </div>
+			 </div>
+			</div> -->
+		</div>
+		  <div class="col-sm-6 col-md-6">		  			    			   				       
+		  		<div class="panel panel-primary">		  			
+					<div class="panel-heading">
+						<p class="title"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{title}} <span class="pull-right white"><i class="fa fa-clock-o" aria-hidden="true"></i> {{submittedText}}</span></p>
+					</div>
+					<div class="panel-body">
+						
+							{{>carousel photos=photos}}
+												
+						
+							<p class="btn btn-primary annonce_page_price pull-right"><span class="glyphicon glyphicon-tag"></span> {{price}} DH</p>
+						
+					</div>	
+					<div class="panel-footer">
+						<p class="lead">
+							{{description}}																			
+						</p>
+						
+					</div>
+								
+		  		</div>
+		   <!--    <div class="row">
+		        <h3>{{title}}</h3>	        
+		        <p class="lead">{{description}}</p>
+		        <p>		    
+		        	{{#if countComments}}
+						<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-comment"></span> {{countComments}}
+						</a>
+					{{/if}}
+					{{#if ownAnnonce}}
+						<a href="{{pathFor 'annonceEdit'}}" class="btn btn-warning">
+						 Modifier<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+					{{/if}}	
+							
+				</p>
+	      </div> -->
+	    </div>	  
+	  <div class="col-md-4 pull-right">	  	
+			<ul class="list-group">
+				<li class="list-group-item active">
+					<h2><i class="fa fa-user" aria-hidden="true"></i> {{username}} {{#if user.status }}<span class="label label-success pull-right">en ligne</span>{{else}} <span class="label label-danger pull-right">hors ligne</span> {{/if}}</h2>								
+				</li>
+			  <li class="list-group-item">			   
+			    <span class="glyphicon glyphicon-earphone"></span> <strong>Téléphone </strong>
+			     <span class="badge">{{user.profile.phone}}</span>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{city}}</span>
+			    <span class="glyphicon glyphicon-globe"></span> <strong>Ville </strong>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{email}}</span>
+			    <span class="glyphicon glyphicon-envelope"></span> <strong>email</strong>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{price}} DH</span>
+			    <i class="fa fa-money" aria-hidden="true"></i> <strong>Prix </strong>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">{{category}}, {{offre}}</span>
+			    <span class="glyphicon glyphicon-flag"></span> <strong>Type </strong>
+			  </li>
+			</ul>
+			<div id="comments" mCustomScrollbar>
+				{{>commentsList}}
+			</div>				
+					
 		</div>		
+
 	</div>	
 </template>
