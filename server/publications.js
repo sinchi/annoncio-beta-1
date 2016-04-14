@@ -32,6 +32,19 @@ Meteor.publish('categories', function(){
 	return Categories.find();
 });
 
+Meteor.publishComposite('brandsAndModels', {
+	find: function(){
+		return Brands.find();
+	},
+	children:[
+		{
+			find: function(brand){
+				return CarsModel.find({model: brand._id});
+			}
+		}
+	]
+});
+
 Meteor.publish('users', function(annonceId){
 	check(annonceId, String);
 	var annonce = Annonces.findOne(annonceId);

@@ -24,6 +24,7 @@ Template.annonceSubmit.helpers({
 	immobilier: function(){
 		return Session.get('immobilier');
 	}
+
 });
 
 

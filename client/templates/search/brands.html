@@ -1,0 +1,18 @@
+<template name="brandsList">
+	<select id="brand" maxlength="50" class="form-control brand" name="brand" >
+		{{#each brands}}
+			{{>brandItem}}
+		{{/each}}
+	</select>
+	<select id="carModel" maxlength="50" class="form-control carModel" name="carModel" >
+		{{#each carsModel}}
+			{{>carModelItem}}
+		{{/each}}
+	</select>
+</template>
+<template name="brandItem">
+	<option value="{{_id}}">{{name}}</option>
+</template>
+<template name="carModelItem">
+	<option value="{{_id}}">{{name}}</option>
+</template>

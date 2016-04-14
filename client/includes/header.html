@@ -8,13 +8,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{pathFor 'annoncesList'}}"><i class="fa fa-star" aria-hidden="true"></i> Annoncio</a>
+          <a class="navbar-brand white" href="{{pathFor 'annoncesList'}}"><i class="fa fa-star" aria-hidden="true"></i> Annoncio</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <!-- {{>searchAnnonces}} -->
           <ul class="nav navbar-nav">
            <!--  <li class="active"><a href="{{pathFor 'annoncesList'}}">Trouver une annonce </a></li> -->
-           <li><a href="{{pathFor 'annoncesList'}}"><i class="fa fa-home" aria-hidden="true"></i> Acceuil</a></li>
+           <li><a href="{{pathFor 'annoncesList'}}"><span class="white"><i class="fa fa-home" aria-hidden="true"></i> Acceuil</span></a></li>
             {{#if currentUser}}              
                 {{>notifications}}              
            
@@ -40,7 +40,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{#if currentUser}}<i class="fa fa-user" aria-hidden="true"></i> {{currentUser.profile.name}} {{else}} Se connecter {{/if}} <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{#if currentUser}}<i class="fa fa-user" aria-hidden="true"></i> {{currentUser.profile.name}} {{else}} Se connecter {{/if}} <span class="white"><span class="caret"></span></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{{pathFor 'profile'}}"><span class="glyphicon glyphicon-cog"></span> Mon compte</a></li>
                 <li><a href="{{pathFor 'store'}}"><span class="glyphicon glyphicon-shopping-cart"></span> Ma boutique</a></li>
@@ -48,7 +48,7 @@
                 {{#if currentUser}}<li><a href="#" class="logout"><span class="glyphicon glyphicon-off"></span> Deconnexion</a></li>{{/if}}          
               </ul>              
             </li>
-            <li><a href="{{pathFor 'annonceSubmit'}}"><span class="glyphicon glyphicon-edit"></span> Déposer une annonce</a></li>
+            <li><a href="{{pathFor 'annonceSubmit'}}"><span class="white"><span class="glyphicon glyphicon-edit"></span> Déposer une annonce</span></a></li>
             
             <!-- <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->
           </ul>

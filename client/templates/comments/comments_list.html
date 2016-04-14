@@ -12,11 +12,11 @@
 				<div class="form-controls">
 					<label class="label-control">Commentaire</label>
 					<div class="controls">
-						<textarea name="body" cols="50" class="form-control"></textarea>
+						<textarea id="body" name="body" cols="50" class="form-control"></textarea>
 						<!-- <input type="text" multiline class="form-control" name="body" /> -->
 					</div>			
 				</div>
-				<button type="submit" class="btn btn-primary form-control" >Commenter <i class="fa fa-commenting" aria-hidden="true"></i></button>  
+				<button type="submit" class="btn btn-primary form-control" id="commenter" {{disabled}}>Commenter <i class="fa fa-commenting" aria-hidden="true"></i></button>  
 			</form>
 		{{else}}
 			<p><a href="{{pathFor 'login'}}">Connectez-vous pour envoyer un commentaire !!</a></p>		
