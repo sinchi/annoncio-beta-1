@@ -10,31 +10,77 @@
 
 					<div class="form-controls">			
 						<label class="control-label">Catégorie:</label>
-						<div class="controls">
+						<div class="controls {{ errorClass 'category'}}">
 							{{>categories}}
+							<span class="help-block">{{errorMessage 'category'}}</span>
 						</div>			
 					</div>
 					{{#unless vihiculePro}}
-						{{>typeAnnonce}}
+						
+							{{>typeAnnonce}}
+							
 					{{/unless}}
 
 					{{#if voiture}}
-						{{>brandsList}}
+						<div class="{{errorClass 'brand'}}">
+							{{>brandsList}}
+							<span class="help-block">{{errorMessage 'brand'}}</span>
+						</div>
+						<div class="{{errorClass 'carModel'}}">
+							{{>carsModel}}
+							<span class="help-block">{{errorMessage 'carModel'}}</span>
+						</div>
+						<div class="{{errorClass 'gazoline'}}">
+							{{>gazoline}}
+							<span class="help-block">{{errorMessage 'gazoline'}}</span>
+						</div>
+						<div class="{{errorClass 'years'}}">
+							{{>yearOfModel}}
+							<span class="help-block">{{errorMessage 'years'}}</span>
+						</div>
+						<div class="{{errorClass 'km'}}">
+							{{>km}}
+							<span class="help-block">{{errorMessage 'km'}}</span>
+						</div>
+						
 					{{else}}
 						{{#if moto}}
-							{{>yearOfModel}}
-							{{>km}}
+							<div class="{{errorClass 'years'}}">
+								{{>yearOfModel}}
+								<span class="help-block">{{errorMessage 'years'}}</span>
+							</div>
+							<div class="{{errorClass 'km'}}">
+								{{>km}}
+								<span class="help-block">{{errorMessage 'km'}}</span>
+							</div>
+							
 						{{else}}
 							{{#if immobilier}}
 								<strong>immobilier</strong>
 								{{else}}
 									{{#if vihiculePro}}
 									<label class="control-label">Type de vihicule:</label>
-										{{>vihiculeProfessionnel}}
+										<div class="{{errorClass 'vihicule_pro'}}">		
+											{{>vihiculeProfessionnel}}
+										<span class="help-block">{{errorMessage 'vihicule_pro'}}</span>
+										</div>
+										
+									<div class="{{errorClass 'offre'}}">
 										{{>typeAnnonce vPro=true}}
+										<span class="help-block">{{errorMessage 'offre'}}</span>
+									</div>
+									<div class="{{errorClass 'gazoline'}}">
 										{{>gazoline}}
+										<span class="help-block">{{errorMessage 'gazoline'}}</span>
+									</div>
+									<div class="{{errorClass 'years'}}">
 										{{>yearOfModel}}
+										<span class="help-block">{{errorMessage 'years'}}</span>
+									</div>
+									<div class="{{errorClass 'km'}}">
 										{{>km}}
+										<span class="help-block">{{errorMessage 'km'}}</span>
+									</div>
 									{{/if}}
 							{{/if}}							
 						{{/if}}
@@ -128,7 +174,7 @@
 		<label class="control-label" for='offre'>Type d'annonce:</label>
 		 <div class="controls">
 		 	<label class="control-label" for="offre">	
-		 		<input type="radio" name="type_annonce" id="offre" class="offre" value="offre">
+		 		<input type="radio" name="type_annonce" id="offre" class="offre" value="offre" checked>
 		    	Offre
 			</label>
 		</div>
