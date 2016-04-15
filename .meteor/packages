@@ -30,3 +30,5 @@ momentjs:moment
 fortawesome:fontawesome
 less
 reywood:publish-composite
+utilities:avatar
+numeral:numeral

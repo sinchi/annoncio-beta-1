@@ -1,5 +1,6 @@
 <template name="categories">
-	<select id="category" maxlength="50" class="form-control category" name="category" >		
+	<select id="category" maxlength="50" class="form-control category" name="category" >
+	<option value="all">Toutes les catégories</option>		
 		{{#each categories}}
 			{{#unless parentId}}
 				<optgroup label="{{name}}">

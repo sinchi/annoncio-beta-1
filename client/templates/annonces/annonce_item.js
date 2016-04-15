@@ -26,6 +26,12 @@ Template.annonceItem.helpers({
 		var user = Meteor.users.findOne(this.userId);
 		if(user)
 			return user.status;
+	},
+	users: function(){
+		 return Meteor.users.find({_id: {$in: this.readers}});
+	},
+	user: function(){
+		return Meteor.users.findOne(this.userId);
 	}
 	
 });

@@ -21,9 +21,22 @@
 			</div>
 			<div class="panel-footer">
 				{{#if reads}}
-	        	<a href="{{pathFor 'annoncePage'}}" class="btn btn-default readIt">
+	        	<!-- <a href="{{pathFor 'annoncePage'}}" class="btn btn-default readIt">
 	        		<i class="fa fa-eye" aria-hidden="true"></i>  {{pluralize reads "vue"}}
-	        	</a> 
+	        	</a>  -->
+	        	<div class="btn-group dropup">
+				  <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i>  {{pluralize reads "vue"}}</button>
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <!-- Dropdown menu links -->
+				    {{#each users}}
+				    	<li><a href=""><!-- {{> avatar user=user size='extra-small' shape="circle"}} --> <i class="fa fa-user" aria-hidden="true"></i> {{profile.name}}</a></li>
+				    {{/each}}
+				  </ul>
+				</div>
 	        	{{/if}}
 	        	{{#if countComments}}
 					<a href="{{pathFor 'annoncePage'}}" class="btn btn-primary readIt">

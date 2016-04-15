@@ -7,33 +7,36 @@
 						<h2>Créer votre Annonce !</h2>
 						<hr>
 					</div>
+
 					<div class="form-controls">			
 						<label class="control-label">Catégorie:</label>
 						<div class="controls">
 							{{>categories}}
 						</div>			
 					</div>
-					{{#if vihicule}}
+					{{#unless vihiculePro}}
+						{{>typeAnnonce}}
+					{{/unless}}
+
+					{{#if voiture}}
 						{{>brandsList}}
 					{{else}}
-						{{#if immobilier}}
-							immobilier
+						{{#if moto}}
+							{{>yearOfModel}}
+							{{>km}}
 						{{else}}
-					<div class="form-group">
-						<label class="control-label" for='offre'>Type d'annonce:</label>
-						 <div class="controls">
-						 	<label class="control-label" for="offre">	
-					 		<input type="radio" name="type" id="offre" value="offre" checked>
-						    	Offre
-							</label>
-						</div>
-						<div class="controls">			
-						  <label class="control-label" for="demande">
-						  <input type="radio" name="type" id="demande" value="demande">
-						    Demande
-						  </label>							
-						</div>
-					</div>
+							{{#if immobilier}}
+								<strong>immobilier</strong>
+								{{else}}
+									{{#if vihiculePro}}
+									<label class="control-label">Type de vihicule:</label>
+										{{>vihiculeProfessionnel}}
+										{{>typeAnnonce vPro=true}}
+										{{>gazoline}}
+										{{>yearOfModel}}
+										{{>km}}
+									{{/if}}
+							{{/if}}							
 						{{/if}}
 					{{/if}}
 					<div class="form-controls">
@@ -118,5 +121,30 @@
 					</form>
 				</div>
 			</div>
+	</div>
+</template>
+<template name="typeAnnonce">
+	<div class="form-group">
+		<label class="control-label" for='offre'>Type d'annonce:</label>
+		 <div class="controls">
+		 	<label class="control-label" for="offre">	
+		 		<input type="radio" name="type_annonce" id="offre" class="offre" value="offre">
+		    	Offre
+			</label>
+		</div>
+		{{#if vPro}}
+			<div class="controls">			
+			  <label class="control-label" for="location">
+			  <input type="radio" class="location" name="type_annonce" id="location" value="location">
+			    Offre de location
+			  </label>							
+			</div>
+		{{/if}}
+		<div class="controls">			
+		  <label class="control-label" for="demande">
+		  <input type="radio" class="demande" name="type_annonce" id="demande" value="demande">
+		    Demande
+		  </label>							
+		</div>		
 	</div>
 </template>

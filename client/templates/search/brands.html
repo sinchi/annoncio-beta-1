@@ -1,18 +1,84 @@
 <template name="brandsList">
-	<select id="brand" maxlength="50" class="form-control brand" name="brand" >
-		{{#each brands}}
-			{{>brandItem}}
-		{{/each}}
-	</select>
-	<select id="carModel" maxlength="50" class="form-control carModel" name="carModel" >
-		{{#each carsModel}}
-			{{>carModelItem}}
-		{{/each}}
-	</select>
+	{{>brand}}
+	{{>carsModel}}	
+	{{>gazoline}}
+	{{>yearOfModel}}
+	{{>km}}
 </template>
 <template name="brandItem">
 	<option value="{{_id}}">{{name}}</option>
 </template>
 <template name="carModelItem">
 	<option value="{{_id}}">{{name}}</option>
+</template>
+
+<template name="brand">
+	<div class="form-controls">			
+		<label class="control-label">Marque:</label>
+			<div class="controls">
+				<select id="brand" maxlength="50" class="form-control brand" name="brand" >
+					<option value="unselected" name="model" selected>Selectionner la marque</option>
+						{{#each brands}}
+							{{>brandItem}}
+						{{/each}}
+				</select>
+			</div>			
+	</div>
+</template>
+<template name="carsModel">
+	<div class="form-controls">			
+		<label class="control-label">Modèle:</label>
+			<div class="controls">
+				<select id="carModel" maxlength="50" class="form-control carModel" name="carModel" >
+						<option value="unselected" name="model" selected>Selectionner le modèle</option>
+							{{#each carsModel}}
+								{{>carModelItem}}
+							{{/each}}
+				</select>
+			</div>			
+	</div>
+</template>
+<template name="gazoline">
+	<div class="form-controls">			
+		<label class="control-label">Type de carburant:</label>
+			<div class="controls">
+				<select id="gazoline" maxlength="50" class="form-control gazoline" name="gazoline" >
+						<option value="unselected" selected>Selectionner le type de carburant</option>
+							<option value="diesel">Diesel</option>
+							<option value="essence">Essence</option>
+							<option value="electrique">Eléctrique</option>
+							<option value="lpg">LPG</option>
+				</select>
+			</div>			
+	</div>
+</template>
+
+<template name="yearOfModel">
+	<div class="form-controls">			
+		<label class="control-label">Année-Modèle:</label>
+			<div class="controls">
+				<select id="years" maxlength="50" class="form-control years" name="years" >
+					<option value="unselected" name="model" selected>Selectionner l'Année de Modèle</option>
+						{{#each years}}
+							<option value="{{this}}">{{this}}</option>
+						{{/each}}
+						<option value="ancien">Plus ancien!</option>
+				</select>
+			</div>			
+	</div>
+</template>
+
+<template name="km">
+	<div class="form-controls">			
+		<label class="control-label">Kilométrage:</label>
+			<div class="controls">
+				<select id="km" maxlength="50" class="form-control km" name="km" >
+					<option value="unselected" name="model" selected>Selectionner Kilométrage</option>
+						{{#each km}}
+							<option value="{{this}}">{{this}}</option>
+						{{/each}}
+						<option value="plus">Plus de 500,000!</option>
+				</select>
+			</div>			
+	</div>
 </template>

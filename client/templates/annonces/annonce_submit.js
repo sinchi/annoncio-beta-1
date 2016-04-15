@@ -18,11 +18,38 @@ Template.annonceSubmit.helpers({
 	errorMessage: function(field){
 		return Session.get('submitAnnonceErrors')[field];
 	},
-	vihicule: function(){
-		return Session.get('vihicule');
+
+	voiture: function(){
+		if(Session.get('categoryId')){
+			var category =  Categories.findOne(Session.get('categoryId'));
+			var categoryParent = Categories.findOne(category.parentId);		
+			if(category.name === "Voitures" && categoryParent.name === "Vihicules")
+				return true;
+		}				
+	},
+	moto: function(){
+		if(Session.get('categoryId')){
+			var category =  Categories.findOne(Session.get('categoryId'));
+			var categoryParent = Categories.findOne(category.parentId);		
+			if(category.name === "Motos" && categoryParent.name === "Vihicules")
+				return true;
+		}
 	},
 	immobilier: function(){
-		return Session.get('immobilier');
+		if(Session.get('categoryId')){
+			var category =  Categories.findOne(Session.get('categoryId'));
+			var categoryParent = Categories.findOne(category.parentId);		
+			if(categoryParent.name === "Immobilier")
+				return true;
+		}
+	},
+	vihiculePro: function(){
+		if(Session.get('categoryId')){
+			var category =  Categories.findOne(Session.get('categoryId'));
+			var categoryParent = Categories.findOne(category.parentId);		
+			if(category.name === "Vihicules Professionnels" && categoryParent.name === "Vihicules")
+				return true;
+		}
 	}
 
 });
@@ -32,18 +59,38 @@ Template.annonceSubmit.events({
 	'change .category': function(e){
 		e.preventDefault();
 		var categoryId = e.target.value;
-		var parentId = Categories.findOne(categoryId).parentId;
-		var parent = Categories.findOne(parentId);
-		if(parent.name === 'Vihicules')
-			Session.set('vihicule', true);
-		else
-			Session.set('vihicule', false);
-
-		 if(parent.name === 'Immobilier')
-			Session.set('immobilier', true)
-		else
-			Session.set('immobilier', false);
+		if(categoryId !== "all")		
+			Session.set('categoryId', categoryId);				
 	},
+	'click .offre': function(e){
+		///e.preventDefault();
+		if(e.target.value){
+			Session.set('offre', 'offre');
+			Session.set('demande', '');
+			Session.set('location', '');
+		}
+		
+		
+	},
+	'click .demande': function(e){
+		//e.preventDefault();
+		if(e.target.value){
+			Session.set('demande', 'demande');
+			Session.set('offre', '');
+			Session.set('location', '');
+		}
+	},
+	
+	'click .location': function(e){
+		//e.preventDefault();
+		if(e.target.value){
+			Session.set('location', 'location');
+			Session.set('demande', '');
+			Session.set('offre', '');
+		}
+			
+	},
+	
 	'change .photos': function(e){
 		e.preventDefault();	
 		//console.log(e.target.files);
@@ -78,15 +125,58 @@ Template.annonceSubmit.events({
 	
 			if(Meteor.user()){				
 				var annonce = {
-					categoryId: $(e.target).find('[name=category]').val(),
-					offre: $(e.target).find('[name=type]').val(),
-					//demande: $(e.target).find('[name=demande]').val(),
+					categoryId: $(e.target).find('[name=category]').val(),					
 					cityId: $(e.target).find('[name=city]').val(),
 					title: $(e.target).find('[name=title]').val(),
 					description: $(e.target).find('[name=description]').val(),
 					price: parseInt($(e.target).find('[name=price]').val()),					
-					images: Session.get('photos') || []
-				};						
+					images: Session.get('photos') || [],
+					offre :  Session.get('offre'),
+					demande : Session.get('demande')		
+				};		
+								
+
+
+				if(annonce.categoryId === "all"){
+					$('html,body').animate({
+			            scrollTop: 0
+			        }, 100);
+			        return throwError('Veuillez remplir le formulaire pour ajouter une annonce !');
+				}
+					
+
+				var category =  Categories.findOne(annonce.categoryId);
+				var categoryParent = Categories.findOne(category.parentId);	
+
+				if(category.name === "Voitures" && categoryParent.name === "Vihicules"){					
+					_.extend(annonce, {
+						brand: $(e.target).find('[name=brand]').val(),
+						carModel: $(e.target).find('[name=carModel]').val(),
+						gazoline: $(e.target).find('[name=gazoline]').val(),
+						years: $(e.target).find('[name=years]').val(),
+						km: $(e.target).find('[name=km]').val()
+					});
+				}else if(category.name === "Motos" && categoryParent.name === "Vihicules"){
+					_.extend(annonce, {						
+						years: $(e.target).find('[name=years]').val(),
+						km: $(e.target).find('[name=km]').val()
+					});
+				}else if(category.name === "Vihicules Professionnels" && categoryParent.name === "Vihicules"){
+					_.extend(annonce, {	
+						location: Session.get('location'),
+						gazoline: $(e.target).find('[name=gazoline]').val(),				
+						years: $(e.target).find('[name=years]').val(),
+						km: $(e.target).find('[name=km]').val(),
+						vihiculePro: $(e.target).find('[name=vihicule_pro]').val()
+					});
+				}
+					
+				console.log(annonce);
+				return ;
+
+				
+
+								
 				/*console.log('ok');
 				var photos = $("#photos").files;
 				console.log(photos);
