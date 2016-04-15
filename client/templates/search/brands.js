@@ -1,7 +1,7 @@
 import {Session} from 'meteor/session'
 
 Template.brandsList.onCreated(function(){
-	console.log("one care"  + CarsModel.findOne());
+	//console.log("one care"  + CarsModel.findOne());
 	return Session.set('model', CarsModel.findOne());
 });
 
@@ -46,8 +46,8 @@ Template.yearOfModel.events({
 
 Template.km.helpers({
 	km: function(){
-		0 - 4999
-		5000 - 9999
+		/*0 - 4999
+		5000 - 9999*/
 		var i = 0;
 		var j = 4999;
 		var tkm = [];

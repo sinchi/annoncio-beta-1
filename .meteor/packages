@@ -32,3 +32,8 @@ less
 reywood:publish-composite
 utilities:avatar
 numeral:numeral
+browser-policy
+meteorhacks:ssr
+meteorhacks:npm
+themeteorchef:bert
+themeteorchef:jquery-validation

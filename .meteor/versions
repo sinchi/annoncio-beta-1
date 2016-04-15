@@ -12,6 +12,10 @@ blaze@2.1.5
 blaze-html-templates@1.0.2
 blaze-tools@1.0.6
 boilerplate-generator@1.0.6
+browser-policy@1.0.7
+browser-policy-common@1.0.7
+browser-policy-content@1.0.8
+browser-policy-framing@1.0.8
 caching-compiler@1.0.2
 caching-html-compiler@1.0.4
 callback-hook@1.0.6
@@ -47,6 +51,7 @@ email@1.0.10
 es5-shim@4.5.8
 fastclick@1.0.9
 fortawesome:fontawesome@4.5.0
+fourseven:scss@3.3.3_3
 geojson-utils@1.0.6
 hot-code-push@1.0.2
 html-tools@1.0.7
@@ -73,7 +78,10 @@ localstorage@1.0.7
 logging@1.0.10
 meteor@1.1.12
 meteor-base@1.0.2
+meteorhacks:async@1.0.0
 meteorhacks:inject-initial@1.0.4
+meteorhacks:npm@1.5.0
+meteorhacks:ssr@2.2.0
 minifier-css@1.1.9
 minifier-js@1.1.9
 minimongo@1.0.12
@@ -112,6 +120,8 @@ standard-minifier-js@1.0.4
 stylus@2.511.3
 templating@1.1.7
 templating-tools@1.0.2
+themeteorchef:bert@2.1.0
+themeteorchef:jquery-validation@1.14.0
 tracker@1.0.11
 twbs:bootstrap@3.3.6
 ui@1.0.9

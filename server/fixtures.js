@@ -2856,9 +2856,13 @@ CarsModel.insert({
    });
 // /zotye
 
-autre = Brands.insert({
+var autre = Brands.insert({
       name: "Autres"
     });
+
+
   }
 
 });
+
+console.log(Modules);
