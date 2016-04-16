@@ -3,7 +3,7 @@ import {Session} from 'meteor/session'
 Template.annonceSubmit.onCreated(function(){
 	Session.set('submitAnnonceErrors', {});
 	Session.set('photos', []);
-	Session.set('offre', 'offre');
+	
 });
 
 Template.annonceSubmit.onRendered(function(){
@@ -65,40 +65,12 @@ Template.annonceSubmit.events({
 
 		Session.set('submitAnnonceErrors', {});			
 	},
-	'click .offre': function(e){
-		///e.preventDefault();
-		if(e.target.value){
-			Session.set('offre', 'offre');
-			Session.set('demande', '');
-			Session.set('location', '');
-		}
 		
-		
-	},
-	'click .demande': function(e){
-		//e.preventDefault();
-		if(e.target.value){
-			Session.set('demande', 'demande');
-			Session.set('offre', '');
-			Session.set('location', '');
-		}
-	},
-	
-	'click .location': function(e){
-		//e.preventDefault();
-		if(e.target.value){
-			Session.set('location', 'location');
-			Session.set('demande', '');
-			Session.set('offre', '');
-		}
-			
-	},
-	
 	'change .photos': function(e){
 		e.preventDefault();	
 		//console.log(e.target.files);
 		
-		/*var files = e.target.files;		
+		var files = e.target.files;		
 		var photos = Session.get('photos') || [];
 
 		if(photos.length > 0){
@@ -121,10 +93,12 @@ Template.annonceSubmit.events({
 					i++;
 				});
 
-		});	*/					
+		});						
 	},
 	'submit form': function(e, tpl){
 		e.preventDefault();	
+
+
 	
 			if(Meteor.user()){				
 				var annonce = {
@@ -134,8 +108,7 @@ Template.annonceSubmit.events({
 					description: $(e.target).find('[name=description]').val(),
 					price: parseInt($(e.target).find('[name=price]').val()),					
 					images: Session.get('photos') || [],
-					offre :  Session.get('offre'),
-					demande : Session.get('demande')		
+					type_annonce :  $('[name=type_annonce]:checked').val()	
 				};		
 								
 
@@ -173,8 +146,7 @@ Template.annonceSubmit.events({
 					});
 					submittedAnnonceType = "Motos";
 				}else if(category.name === "Vihicules Professionnels" && categoryParent.name === "Vihicules"){
-					_.extend(annonce, {	
-						location: Session.get('location'),
+					_.extend(annonce, {							
 						gazoline: $(e.target).find('[name=gazoline]').val(),				
 						years: $(e.target).find('[name=years]').val(),
 						km: $(e.target).find('[name=km]').val(),
@@ -183,8 +155,8 @@ Template.annonceSubmit.events({
 					submittedAnnonceType = "Vpro";
 				}
 					
-				console.log("type annonce : " + submittedAnnonceType);
-				console.log(annonce);
+				/*console.log("type annonce : " + submittedAnnonceType);
+				console.log(annonce);*/
 			/*	var photos = $('#photos').prop('files');
 				if(photos.length > 6){
 					Bert.alert('<strong>Le nombre maximum autoriser pour charger les images est 6 images ! </strong><br/><p>Merci de réssayer </p>','danger');
@@ -220,19 +192,16 @@ Template.annonceSubmit.events({
 				//console.log(Session.get('photos'));
 				//return;
 				var errors = validateAnnonce(annonce, submittedAnnonceType);
-				console.log(errors);
+				//console.log(errors);
 				if(errors.description || errors.price || errors.title)
 					return Session.set('submitAnnonceErrors', errors);
 
 
-
-				console.log("OK");
-				return;
-				Meteor.call('insertAnnonce', annonce, function(error, result){
+				Meteor.call('insertAnnonce', annonce,submittedAnnonceType, function(error, result){
 					if(error)
 						return throwError(error.reason);
 					var annonceId = result._id;
-					var active = true;
+					/*var active = true;
 					_.each(photos, function(photo){
 						_.extend(photo, {
 							annonceId: annonceId,
@@ -241,9 +210,9 @@ Template.annonceSubmit.events({
 						});
 						active = false;
 						Photos.insert(photo);
-					});
-				//	Modules.client.uploadToAmazonS3 = ({files:photos, annonceId: annonceId});
-					/*Router.go('annoncePage', {_id: result._id});*/
+					});*/
+					//Modules.client.uploadToAmazonS3 = ({files:photos, annonceId: annonceId});
+					Router.go('annoncePage', {_id: result._id});
 				});
 
 				

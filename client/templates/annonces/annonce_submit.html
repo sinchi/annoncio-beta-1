@@ -16,9 +16,10 @@
 						</div>			
 					</div>
 					{{#unless vihiculePro}}
-						
+							<div class="{{errorClass 'type_annonce'}}">
 							{{>typeAnnonce}}
-							
+							<span class="help-block">{{errorMessage 'type_annonce'}}</span>
+							</div>
 					{{/unless}}
 
 					{{#if voiture}}
@@ -65,9 +66,9 @@
 										<span class="help-block">{{errorMessage 'vihicule_pro'}}</span>
 										</div>
 										
-									<div class="{{errorClass 'offre'}}">
+									<div class="{{errorClass 'type_annonce'}}">
 										{{>typeAnnonce vPro=true}}
-										<span class="help-block">{{errorMessage 'offre'}}</span>
+										<span class="help-block">{{errorMessage 'type_annonce'}}</span>
 									</div>
 									<div class="{{errorClass 'gazoline'}}">
 										{{>gazoline}}
@@ -174,7 +175,7 @@
 		<label class="control-label" for='offre'>Type d'annonce:</label>
 		 <div class="controls">
 		 	<label class="control-label" for="offre">	
-		 		<input type="radio" name="type_annonce" id="offre" class="offre" value="offre" checked>
+		 		<input type="radio" name="type_annonce" id="offre" class="offre" value="offre" checked="checked">
 		    	Offre
 			</label>
 		</div>
