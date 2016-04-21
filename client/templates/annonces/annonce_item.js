@@ -27,7 +27,7 @@ Template.annonceItem.helpers({
 		if(user)
 			return user.status;
 	},
-	users: function(){
+	readers: function(){
 		 return Meteor.users.find({_id: {$in: this.readers}});
 	},
 	user: function(){

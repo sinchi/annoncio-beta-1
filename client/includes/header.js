@@ -16,8 +16,9 @@ Template.header.events({
 			if(err)
 				throwError(err.reason);
 			console.log(Meteor.userId() + " est deconnecté");
-		})
+		});
 		Meteor.logout();
+		
 
 	}
 });

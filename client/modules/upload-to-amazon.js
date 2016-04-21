@@ -25,7 +25,7 @@ let _uploadFileToAmazon = ( files , annonceId) => {
      uploader.send( file, ( error, url ) => {
       if ( error ) {
         Bert.alert( error.message, "warning" );
-        _setPlaceholderText();
+        //_setPlaceholderText();
       } else {
         _addUrlToDatabase( url , annonceId);
       }

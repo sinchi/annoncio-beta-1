@@ -97,9 +97,6 @@ Template.annonceSubmit.events({
 	},
 	'submit form': function(e, tpl){
 		e.preventDefault();	
-
-
-	
 			if(Meteor.user()){				
 				var annonce = {
 					categoryId: $(e.target).find('[name=category]').val(),					

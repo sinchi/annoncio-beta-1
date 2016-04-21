@@ -14,4 +14,5 @@ if(Meteor.isClient){
       console.log("async fonts loaded", WebFontConfig);
     })();
   });
+
 }

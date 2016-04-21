@@ -8,7 +8,12 @@
 			<div class="form-controls">
 				<i class="fa fa-briefcase" aria-hidden="true"></i> <label class="label-control">Catégorie</label>
 					{{>categories}}
+			</div>	
+			<div class="form-controls">
+				<!-- <i class="fa fa-briefcase" aria-hidden="true"></i> <label class="label-control">Catégorie</label> -->
+					{{>slider}}
 			</div>
+			{{> Template.dynamic template=extraField}}
 	        <div class="form-controls">
 	        	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control">Titre</label>
 	            <input type="text" class="form-control texte" placeholder="Trouver des annonces !" name="texte">
@@ -28,5 +33,37 @@
 		    </div>  -->
 	        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Trouver</button>
 	    </form>
+	</div>
+</template>
+<template name="Voitures">
+	<div class="form-controls">
+		<i class="fa fa-briefcase" aria-hidden="true"></i> <label class="label-control"></label>
+		{{>brandsList}}
+	</div>	
+	<div class="form-controls">
+		<i class="fa fa-briefcase" aria-hidden="true"></i> <label class="label-control"></label>
+		{{>carsModel}}
+	</div>	
+	<div class="form-controls">
+	   	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control"></label>
+	     {{>gazoline}}
+	</div>
+	<div class="form-controls">
+	  	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control"></label>
+	      {{>yearOfModel}}
+	</div>
+	<div class="form-controls">
+	  	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control"></label>
+	     {{>km}}
+	</div>
+</template>
+<template name="Motos">
+	<div class="form-controls">
+	  	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control"></label>
+	      {{>yearOfModel}}
+	</div>
+	<div class="form-controls">
+	  	<i class="fa fa-bullhorn" aria-hidden="true"></i> <label class="label-control"></label>
+	     {{>km}}
 	</div>
 </template>

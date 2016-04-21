@@ -86,6 +86,11 @@ Meteor.publish('notifications', function(){
 	return Notifications.find({userId: this.userId, read: false});
 });
 
+Meteor.publish('allNotifications', function(){
+	return Notifications.find({userId: this.userId});
+});
+
+
 
 Meteor.publishComposite('annoncesWithRelation', function(options){
 	
@@ -101,10 +106,10 @@ Meteor.publishComposite('annoncesWithRelation', function(options){
 			{
 				find: function(annonce){
 					return Comments.find(annonce._id);
-				},
+				}/*,
 				find: function(annonce){
 					return Meteor.users.find(annonce.userId)
-				},
+				}*/,
 				find: function(annonce){
 					return Meteor.users.find({_id: {$in: annonce.readers}});
 				}

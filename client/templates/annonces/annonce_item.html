@@ -1,6 +1,6 @@
 <template name="annonceItem">		
-	<div class="col-md-11">
-	<div class="col-md-1">
+	<div class="col-sm-12 col-md-11">
+	<div class="col-sm-1 col-md-1">
 		<h2>
 			<i class="fa fa-user" aria-hidden="true"></i>
 		</h2>		
@@ -9,7 +9,7 @@
 			{{else}}<span class="label label-danger">{{username}}</span>
 		{{/if}}		
 	</div>
-	<div class="col-sm-6 col-md-8">
+	<div class="col-sm-9 col-md-8">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<p class="title"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{title}} <span class="pull-right white"><i class="fa fa-clock-o" aria-hidden="true"></i> {{submittedText}}</span></p> 
@@ -32,7 +32,7 @@
 				  </button>
 				  <ul class="dropdown-menu">
 				    <!-- Dropdown menu links -->
-				    {{#each users}}
+				    {{#each readers}}
 				    	<li><a href=""><!-- {{> avatar user=user size='extra-small' shape="circle"}} --> <i class="fa fa-user" aria-hidden="true"></i> {{profile.name}}</a></li>
 				    {{/each}}
 				  </ul>

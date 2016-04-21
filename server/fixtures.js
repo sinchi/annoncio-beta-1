@@ -2866,3 +2866,5 @@ var autre = Brands.insert({
 });
 
 console.log(Modules);
+//set DEPLOY_HOSTNAME=galaxy.meteor.com
+//meteor deploy annoncio.meteorapp.com --settings settings.json --owner sinchi

@@ -44,17 +44,17 @@ Template.register.events({
 				name: annonceur.name,
             	city: annonceur.city,
             	phone: annonceur.phone,
-            	type: annonceur.type
+            	type: annonceur.type            	       
 		};
 
-		Accounts.createUser({email: annonceur.email, password : annonceur.password, profile: profile, status:true}, function(err){
+		Accounts.createUser({email: annonceur.email, password : annonceur.password, profile: profile, status: true}, function(err){
           if (err) {
             return throwError(err.reason);
-          } else {            
+          } else {                  	
           	Meteor.call('updateUserStatusLogin', function(err, result){
 				console.log(Meteor.userId() + " est en ligne");
 			});
-            Router.go('profile');
+            Router.go('annoncesList');
           }
 
         }); 
