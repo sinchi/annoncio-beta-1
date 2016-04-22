@@ -1,0 +1,14 @@
+<template name="km">
+	<div class="form-controls">			
+		<label class="control-label">Kilométrage:</label>
+			<div class="controls">
+				<select id="km" maxlength="50" class="form-control km" name="km" >
+					<option value="unselected" name="model" selected>Selectionner Kilométrage</option>
+						{{#each km}}
+							<option value="{{this}}">{{this}}</option>
+						{{/each}}
+						<option value="plus">Plus de 500,000!</option>
+				</select>
+			</div>			
+	</div>
+</template>

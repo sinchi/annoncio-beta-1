@@ -1,0 +1,14 @@
+<template name="yearOfModel">
+	<div class="form-controls">			
+		<label class="control-label">Année-Modèle:</label>
+			<div class="controls">
+				<select id="years" maxlength="50" class="form-control years" name="years" >
+					<option value="unselected" name="model" selected>Selectionner l'Année de Modèle</option>
+						{{#each years}}
+							<option value="{{this}}">{{this}}</option>
+						{{/each}}
+						<option value="-80">Plus ancien!</option>
+				</select>
+			</div>			
+	</div>
+</template>

@@ -7,6 +7,9 @@ Template.searchAnnonces.onCreated(function(){
 Template.searchAnnonces.helpers({
 	extraField: function () {		
 		return Session.get('category');
+	},
+	brands: function () {
+		return Brands.find()
 	}
 });
 
@@ -31,12 +34,3 @@ Template.searchAnnonces.events({
 	}	
 });
 
-/*Tracker.autorun(function(){
-	var texte = Session.get('texte');
-	console.log(texte);
-	if(texte){
-		 var sub = Meteor.subscribe('searchAnnonces', texte);
-		 if(sub.ready)
-			console.log(Annonces.find({title: { '$regex' : '.*' + texte || '' + '.*', '$options' : 'i' }}).fetch());
-	}
-});*/

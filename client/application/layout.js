@@ -13,12 +13,6 @@ Template.layout.onCreated(function(){
 });
 
 
-Template.layout.onRendered(function(){
-	 var wall = new Freewall("#main");
-	 console.log(wall);
-      wall.fitWidth();
-});
-
 Template.layout.events({
 	'click .drop': function(e){
 		$('html,body').animate({
